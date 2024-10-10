@@ -20,10 +20,6 @@ vim.keymap.set('n', '<leader>.', 'mzA.<Esc>`z', { desc = 'Append period to the e
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Keep cursor centered on page while navigating' })
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Keep cursor centered on page while navigating' })
 
--- Clear highlights on search when pressing <Esc> in normal mode
---  See `:help hlsearch`
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-
 -- Put the search result in the middle of the screen too!
 vim.keymap.set('n', 'n', 'nzzzn') -- The zn is for folding compatibility
 vim.keymap.set('n', 'N', 'Nzzzn') -- The zn is for folding compatibility
