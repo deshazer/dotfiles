@@ -31,7 +31,7 @@ vim.keymap.set('n', 'J', 'mzJ`z', { desc = 'Keep your cursor in the same place w
 vim.keymap.set('n', 'm', ']m', { desc = 'Just to next [M]ethod' })
 vim.keymap.set('n', 'M', '[m', { desc = 'Just to previous [M]ethod' })
 
-vim.keymap.set('n', 'q:', ':q', { remap = true, desc = 'Disable annoying command line thing' })
+vim.keymap.set('n', 'q:', ':q<CR>', { remap = true, desc = 'Disable annoying command line thing' })
 
 -- Navigate between quickfix items
 vim.keymap.set('n', '<leader>k', '<cmd>cnext<CR>zz', { desc = 'Next Quickfix item' })
