@@ -213,6 +213,7 @@ return {
         dockerls = {},
         eslint = {},
         html = {},
+        phpactor = {},
         intelephense = {
           codeLens = {
             implementations = {
