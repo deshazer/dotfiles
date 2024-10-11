@@ -28,9 +28,6 @@ vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move highlighted text lin
 
 vim.keymap.set('n', 'J', 'mzJ`z', { desc = 'Keep your cursor in the same place while joining lines' })
 
-vim.keymap.set('n', 'm', ']m', { desc = 'Just to next [M]ethod' })
-vim.keymap.set('n', 'M', '[m', { desc = 'Just to previous [M]ethod' })
-
 vim.keymap.set('n', 'q:', ':q<CR>', { remap = true, desc = 'Disable annoying command line thing' })
 
 -- Navigate between quickfix items
