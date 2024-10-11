@@ -19,14 +19,6 @@ vim.keymap.set('n', '<leader>,', 'mzA,<Esc>`z', { desc = 'Append comma to the en
 vim.keymap.set('n', '<leader>;', 'mzA;<Esc>`z', { desc = 'Append semicolon to the end of the line' })
 vim.keymap.set('n', '<leader>.', 'mzA.<Esc>`z', { desc = 'Append period to the end of the line' })
 
--- <C-d> and <C-u> for scrolling down and up are old and busted!
-vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Keep cursor centered on page while navigating' })
-vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Keep cursor centered on page while navigating' })
-
--- Put the search result in the middle of the screen too!
-vim.keymap.set('n', 'n', 'nzzzn') -- The zn is for folding compatibility
-vim.keymap.set('n', 'N', 'Nzzzn') -- The zn is for folding compatibility
-
 -- Don't yank the thing you are pasting over the top of (aka Make Pasting Great Again)
 vim.keymap.set('x', 'p', '"_dP', { desc = '[P]ut without yanking' })
 
