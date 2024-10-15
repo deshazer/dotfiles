@@ -7,8 +7,11 @@ return {
     config = function()
       require('oil').setup {
         default_file_explorer = true,
+        view_options = {
+          show_hidden = true,
+        },
       }
-      vim.keymap.set('n', '<leader>-', '<cmd>Oil<cr>', { desc = '[O]il' })
+      vim.keymap.set('n', '-', '<cmd>Oil<cr>', { desc = '[O]il' })
     end,
   },
   -- oil will break the "open file" behavior of the 'gx' keymap
