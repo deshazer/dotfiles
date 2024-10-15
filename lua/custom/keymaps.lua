@@ -12,8 +12,12 @@ vim.keymap.set('i', '<C-Del>', '<C-o>dw', {
 -- NORMAL MODE
 vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = 'Go back to the file explorer' })
 
-vim.keymap.set('n', '<leader>a', '$', { desc = 'Go to end of line [A]' })
-vim.keymap.set('n', '<leader>i', '_', { desc = 'Go to beginning of line [I]' })
+-- vim.keymap.set('n', '<leader>a', '$', { desc = 'Go to end of line [A]' })
+-- vim.keymap.set('n', '<leader>i', '_', { desc = 'Go to beginning of line [I]' })
+
+-- This is better than <leader>a and <leader>i because it opens up those namespaces for other commands
+vim.keymap.set({ 'n', 'v' }, 'L', '$', { desc = 'Go to end of line [ -> ]' })
+vim.keymap.set({ 'n', 'v' }, 'H', '_', { desc = 'Go to beginning of line [ <- ]' })
 
 vim.keymap.set('n', '<leader>,', 'mzA,<Esc>`z', { desc = 'Append comma to the end of the line' })
 vim.keymap.set('n', '<leader>;', 'mzA;<Esc>`z', { desc = 'Append semicolon to the end of the line' })
