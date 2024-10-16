@@ -4,6 +4,7 @@
 return {
   'nvim-neo-tree/neo-tree.nvim',
   version = '*',
+  event = 'VimEnter',
   dependencies = {
     'nvim-lua/plenary.nvim',
     'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
@@ -27,7 +28,7 @@ return {
       },
       window = {
         mappings = {
-          ['\\'] = { 'close_window', nowait = true },
+          ['\\'] = { 'close_window', nowait = true, silent = true },
         },
       },
     },
