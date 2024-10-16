@@ -84,3 +84,5 @@ vim.opt.undodir = os.getenv 'HOME' .. '/.vim/undodir'
 vim.opt.undofile = true
 
 vim.opt.colorcolumn = '80'
+
+vim.opt.confirm = true -- ask for confirmation instead of erroring
