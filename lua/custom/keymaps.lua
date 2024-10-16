@@ -1,19 +1,19 @@
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
---
---  INSERT MODE
--- vim.keymap.set('i', 'jk', '<Esc>l', { desc = 'Get back to normal mode more easily [jk]' })
+
+-- Lazy "Escape"
+vim.keymap.set('i', 'jk', '<Esc>l', { desc = 'Get back to normal mode more easily [jk]' })
+vim.keymap.set('i', 'kj', '<Esc>l', { desc = 'Get back to normal mode more easily [jk]' })
+
+vim.keymap.set('i', '<C-c>', '<Esc>', { desc = 'This makes Ctrl-C clear Codeium suggestions' })
+
 vim.keymap.set('i', '<C-Del>', '<C-o>dw', {
   noremap = true,
   silent = true,
   desc = 'Duplicate the ctrl-backspace behavior of most text editors',
 })
 
--- NORMAL MODE
 vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = 'Go back to the file explorer' })
-
--- vim.keymap.set('n', '<leader>a', '$', { desc = 'Go to end of line [A]' })
--- vim.keymap.set('n', '<leader>i', '_', { desc = 'Go to beginning of line [I]' })
 
 -- This is better than <leader>a and <leader>i because it opens up those namespaces for other commands
 vim.keymap.set({ 'n', 'v' }, 'L', '$', { desc = 'Go to end of line [ -> ]' })
@@ -32,7 +32,7 @@ vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move highlighted text lin
 
 vim.keymap.set('n', 'J', 'mzJ`z', { desc = 'Keep your cursor in the same place while joining lines' })
 
-vim.keymap.set('n', 'q:', ':q<CR>', { remap = true, desc = 'Disable annoying command line thing' })
+vim.keymap.set('n', 'q:', '<nop>', { remap = true, desc = 'Disable annoying command line thing' })
 
 -- Navigate between quickfix items
 vim.keymap.set('n', '<leader>k', '<cmd>cnext<CR>zz', { desc = 'Next Quickfix item' })
@@ -66,7 +66,6 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 --  Use CTRL+<hjkl> to switch between windows
 --
 --  See `:help wincmd` for a list of all window commands
-
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
