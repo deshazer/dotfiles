@@ -74,6 +74,7 @@ return {
           ['af'] = '@function.outer',
           ['ia'] = '@parameter.inner',
           ['aa'] = '@parameter.outer',
+          ['as'] = { query = '@scope', query_group = 'locals', desc = 'Select language scope' },
         },
       },
       move = {
