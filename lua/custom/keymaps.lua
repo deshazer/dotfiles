@@ -7,21 +7,26 @@ vim.keymap.set('i', 'kj', '<Esc>l', { desc = 'Get back to normal mode more easil
 
 vim.keymap.set('i', '<C-c>', '<Esc>', { desc = 'This makes Ctrl-C clear Codeium suggestions' })
 
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = 'Clear search highlights' })
+
 vim.keymap.set('i', '<C-Del>', '<C-o>dw', {
   noremap = true,
   silent = true,
   desc = 'Duplicate the ctrl-backspace behavior of most text editors',
 })
 
-vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = 'Go back to the file explorer' })
-
 -- This is better than <leader>a and <leader>i because it opens up those namespaces for other commands
 vim.keymap.set({ 'n', 'v' }, 'L', '$', { desc = 'Go to end of line [ -> ]' })
 vim.keymap.set({ 'n', 'v' }, 'H', '_', { desc = 'Go to beginning of line [ <- ]' })
 
+-- Easily append common line endings
 vim.keymap.set('n', '<leader>,', 'mzA,<Esc>`z', { desc = 'Append comma to the end of the line' })
 vim.keymap.set('n', '<leader>;', 'mzA;<Esc>`z', { desc = 'Append semicolon to the end of the line' })
 vim.keymap.set('n', '<leader>.', 'mzA.<Esc>`z', { desc = 'Append period to the end of the line' })
+--
+-- Easy insertion of a trailing ; or , from insert mode.
+vim.keymap.set('i', ';;', '<Esc>mzA;<Esc>`za')
+vim.keymap.set('i', ',,', '<Esc>mzA,<Esc>`za')
 
 -- Don't yank the thing you are pasting over the top of (aka Make Pasting Great Again)
 vim.keymap.set('x', 'p', '"_dP', { desc = '[P]ut without yanking' })
@@ -42,8 +47,8 @@ vim.keymap.set('n', '<leader>tq', '<cmd>tabclose<CR>', { desc = '[Q]uit [T]ab' }
 
 -- When you don't want to delete and not "cut"
 -- Unfortunately <leader>d won't work because it conflicts with the LSP <leader>ds for searching doc symbols
-vim.keymap.set('n', '<leader>dd', '"_d')
-vim.keymap.set('v', '<leader>dd', '"_d')
+vim.keymap.set('n', '<leader>dd', '"_d', { desc = '[D]elete without yanking' })
+vim.keymap.set('v', '<leader>dd', '"_d', { desc = '[D]elete without yanking' })
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
@@ -89,10 +94,3 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true })
 -- Reselect visual selection after indenting.
 vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv')
-
--- Reselect pasted text
-vim.keymap.set('n', 'p', 'p`[v`]')
-
--- Easy insertion of a trailing ; or , from insert mode.
-vim.keymap.set('i', ';;', '<Esc>mzA;<Esc>`za')
-vim.keymap.set('i', ',,', '<Esc>mzA,<Esc>`za')
