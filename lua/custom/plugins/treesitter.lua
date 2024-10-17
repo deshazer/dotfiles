@@ -1,6 +1,8 @@
 -- Highlight, edit, and navigate code
 -- This post is invaluable:
 --    https://www.josean.com/posts/nvim-treesitter-and-textobjects
+-- But check the official documentation because some methods are out of date:
+--    https://github.com/nvim-treesitter/nvim-treesitter-textobjects
 return {
   'nvim-treesitter/nvim-treesitter',
   build = function()
@@ -100,6 +102,17 @@ return {
           ['as'] = { query = '@scope', query_group = 'locals', desc = 'Select language scope' },
         },
       },
+      swap = {
+        enable = true,
+        swap_next = {
+          ['<leader>na'] = '@parameter.inner', -- swap parameters/argument with next
+          ['<leader>nm'] = '@function.outer', -- swap function with next
+        },
+        swap_previous = {
+          ['<leader>pa'] = '@parameter.inner', -- swap parameters/argument with prev
+          ['<leader>pm'] = '@function.outer', -- swap function with previous
+        },
+      },
       move = {
         enable = true,
         set_jumps = true, -- whether to set jumps in the jumplist
@@ -111,6 +124,7 @@ return {
           [']c'] = { query = '@class.outer', desc = 'Next class start' },
           [']i'] = { query = '@conditional.outer', desc = 'Next conditional start' },
           [']l'] = { query = '@loop.outer', desc = 'Next loop start' },
+          [']a'] = { query = '@parameter.inner', desc = 'Next argument/parameter start' },
 
           -- You can pass a query group to use query from `queries/<lang>/<query_group>.scm file in your runtime path.
           -- Below example nvim-treesitter's `locals.scm` and `folds.scm`. They also provide highlights.scm and indent.scm.
@@ -132,6 +146,7 @@ return {
           ['[c'] = { query = '@class.outer', desc = 'Prev class start' },
           ['[i'] = { query = '@conditional.outer', desc = 'Prev conditional start' },
           ['[l'] = { query = '@loop.outer', desc = 'Prev loop start' },
+          ['[a'] = { query = '@parameter.inner', desc = 'Prev argument/parameter start' },
         },
         goto_previous_end = {
           ['[F'] = { query = '@call.outer', desc = 'Prev function call end' },
@@ -165,6 +180,25 @@ return {
     vim.keymap.set({ 'n', 'x', 'o' }, 't', ts_repeat_move.builtin_t_expr, { expr = true })
     vim.keymap.set({ 'n', 'x', 'o' }, 'T', ts_repeat_move.builtin_T_expr, { expr = true })
 
+    -- OK, let's make a function that allows us to change the nth argument
+    function ChangeNthArgument(count)
+      local iter = count or 1
+      for _ = 1, iter, 1 do
+        vim.cmd.normal ']a'
+      end
+      vim.cmd.normal 'dia<right>'
+      vim.cmd 'startinsert'
+    end
+
+    -- Make it a command
+    vim.api.nvim_create_user_command('ChangeNthArgument', function(opts)
+      ChangeNthArgument(tonumber(opts.args))
+    end, { nargs = 1 })
+
+    -- And map it
+    vim.keymap.set('n', 'cna', ':<C-u>ChangeNthArgument ', { noremap = true })
+
+    -- Add blade template support
     local parser_config = require('nvim-treesitter.parsers').get_parser_configs()
     parser_config.blade = {
       install_info = {
