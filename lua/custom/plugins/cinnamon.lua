@@ -29,10 +29,6 @@ return {
       cinnamon.scroll '<C-F>zz'
     end)
 
-    -- Just to next/previous method (I don't like cinnamon for this)
-    vim.keymap.set('n', 'M', '[mzz', { desc = 'Just to previous [M]ethod' })
-    vim.keymap.set('n', 'm', ']mzz', { desc = 'Just to next [M]ethod' })
-
     -- Center search result on screen
     vim.keymap.set('n', 'n', function()
       cinnamon.scroll 'nzzzn'
