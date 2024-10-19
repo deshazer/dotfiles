@@ -3,19 +3,19 @@
 
 -- Lazy "Escape"
 vim.keymap.set('i', 'jk', '<Esc>l', { desc = 'Get back to normal mode more easily [jk]' })
-vim.keymap.set('i', 'kj', '<Esc>l', { desc = 'Get back to normal mode more easily [jk]' })
-
 vim.keymap.set('i', '<C-c>', '<Esc>', { desc = 'This makes Ctrl-C clear Codeium suggestions' })
 
+-- Clear search highlights
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = 'Clear search highlights' })
 
+-- Duplicate the ctrl-backspace behavior of most text editors
 vim.keymap.set('i', '<C-Del>', '<C-o>dw', {
   noremap = true,
   silent = true,
   desc = 'Duplicate the ctrl-backspace behavior of most text editors',
 })
 
--- This is better than <leader>a and <leader>i because it opens up those namespaces for other commands
+-- Go to end or beginning of line more naturally
 vim.keymap.set({ 'n', 'v' }, 'L', '$', { desc = 'Go to end of line [ -> ]' })
 vim.keymap.set({ 'n', 'v' }, 'H', '_', { desc = 'Go to beginning of line [ <- ]' })
 
@@ -23,7 +23,7 @@ vim.keymap.set({ 'n', 'v' }, 'H', '_', { desc = 'Go to beginning of line [ <- ]'
 vim.keymap.set('n', '<leader>,', 'mzA,<Esc>`z', { desc = 'Append comma to the end of the line' })
 vim.keymap.set('n', '<leader>;', 'mzA;<Esc>`z', { desc = 'Append semicolon to the end of the line' })
 vim.keymap.set('n', '<leader>.', 'mzA.<Esc>`z', { desc = 'Append period to the end of the line' })
---
+
 -- Easy insertion of a trailing ; or , from insert mode.
 vim.keymap.set('i', ';;', '<Esc>mzA;<Esc>`za')
 vim.keymap.set('i', ',,', '<Esc>mzA,<Esc>`za')
@@ -35,14 +35,17 @@ vim.keymap.set('x', 'p', '"_dP', { desc = '[P]ut without yanking' })
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move highlighted text line-wise' })
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move highlighted text line-wise' })
 
+-- Keep your cursor in the same place while joining lines
 vim.keymap.set('n', 'J', 'mzJ`z', { desc = 'Keep your cursor in the same place while joining lines' })
 
+-- Disable annoying command line thing (but only if you type it fast)
 vim.keymap.set('n', 'q:', '<nop>', { remap = true, desc = 'Disable annoying command line thing' })
 
 -- Navigate between quickfix items
 vim.keymap.set('n', '<leader>k', '<cmd>cnext<CR>zz', { desc = 'Next Quickfix item' })
 vim.keymap.set('n', '<leader>j', '<cmd>cprev<CR>zz', { desc = 'Previous Quickfix item' })
 
+-- Managing tabs
 vim.keymap.set('n', '<leader>tq', '<cmd>tabclose<CR>', { desc = '[Q]uit [T]ab' })
 
 -- When you don't want to delete and not "cut"
