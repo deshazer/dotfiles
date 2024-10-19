@@ -70,6 +70,8 @@ return {
         node_decremental = '<BS>',
       },
     },
+    -- Find all query files here: https://github.com/nvim-treesitter/nvim-treesitter-textobjects/tree/master/queries
+    -- Check here for how to create custom queries: https://github.com/nvim-treesitter/nvim-treesitter#adding-queries
     textobjects = {
       select = {
         enable = true,
@@ -117,6 +119,7 @@ return {
         enable = true,
         set_jumps = true, -- whether to set jumps in the jumplist
         goto_next_start = {
+          [']='] = { query = '@assignment.outer', desc = 'Next assignment start' },
           [']f'] = { query = '@call.outer', desc = 'Next function call start' },
           [']m'] = { query = '@function.outer', desc = 'Next method/function def start' },
           -- I like 'm' as an even shorter shortcut
@@ -125,10 +128,10 @@ return {
           [']i'] = { query = '@conditional.outer', desc = 'Next conditional start' },
           [']l'] = { query = '@loop.outer', desc = 'Next loop start' },
           [']a'] = { query = '@parameter.inner', desc = 'Next argument/parameter start' },
+          [']s'] = { query = '@statement.outer', desc = 'Next statement' },
 
           -- You can pass a query group to use query from `queries/<lang>/<query_group>.scm file in your runtime path.
           -- Below example nvim-treesitter's `locals.scm` and `folds.scm`. They also provide highlights.scm and indent.scm.
-          [']s'] = { query = '@scope', query_group = 'locals', desc = 'Next scope' },
           [']z'] = { query = '@fold', query_group = 'folds', desc = 'Next fold' },
         },
         goto_next_end = {
@@ -139,6 +142,7 @@ return {
           [']L'] = { query = '@loop.outer', desc = 'Next loop end' },
         },
         goto_previous_start = {
+          ['[='] = { query = '@assignment.outer', desc = 'Prev assignment start' },
           ['[f'] = { query = '@call.outer', desc = 'Prev function call start' },
           ['[m'] = { query = '@function.outer', desc = 'Prev method/function def start' },
           -- I like 'M' as an even shorter shortcut
@@ -147,6 +151,7 @@ return {
           ['[i'] = { query = '@conditional.outer', desc = 'Prev conditional start' },
           ['[l'] = { query = '@loop.outer', desc = 'Prev loop start' },
           ['[a'] = { query = '@parameter.inner', desc = 'Prev argument/parameter start' },
+          ['[s'] = { query = '@statement.outer', desc = 'Prev statement' },
         },
         goto_previous_end = {
           ['[F'] = { query = '@call.outer', desc = 'Prev function call end' },
