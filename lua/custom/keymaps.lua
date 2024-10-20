@@ -97,3 +97,10 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true })
 -- Reselect visual selection after indenting.
 vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv')
+
+-- Neovim built-in treesitter support!
+vim.keymap.set('n', '<leader>it', '<cmd>InspectTree<cr>', { desc = '[I]nspect Treesitter [T]ree' })
+vim.keymap.set('n', '<leader>eq', '<cmd>EditQuery<cr>', { desc = '[E]dit Treesitter [Q]uery' })
+
+-- Source VIMRC
+vim.keymap.set('n', '<leader>sv', '<cmd>source $MYVIMRC<cr>', { desc = '[S]ource [V]imrc' })

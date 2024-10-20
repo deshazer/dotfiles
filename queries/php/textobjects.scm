@@ -236,6 +236,12 @@
 ; ; comments
 ; (comment) @comment.outer
 
+; assignments
+(expression_statement 
+  (assignment_expression
+    left: (_) @assignment.lhs
+    right: (_) @assignment.rhs @assignment.inner)) @assignment.outer
+
 ; call
 (function_call_expression function: (name) @call.outer)
 

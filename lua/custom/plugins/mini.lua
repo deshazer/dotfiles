@@ -41,6 +41,7 @@ return {
         -- Disable these and let treesitter handle this
         ['f'] = '', -- Function
         ['a'] = '', -- Argument (function parameter)
+        ['='] = '',
 
         -- Tag (might need to let treesitter handle this too)
         ['t'] = { '<(%w-)%f[^<%w][^<>]->.-</%1>', '^<.->().*()</[^/]->$' },
