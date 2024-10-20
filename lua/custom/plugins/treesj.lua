@@ -102,13 +102,23 @@ return {
                   print(return_type_text)
                   print(body_text)
 
-                  vim.api.nvim_buf_set_text(bufnr, start_row, start_col, end_row, end_col, {
+                  local replacement = {
                     'function ' .. params_text .. (return_type_node and (': ' .. return_type_text) or '') .. ' {',
                     'return ' .. body_text .. ';',
                     '}',
-                  })
+                  }
 
-                  require('conform').format { async = false, lsp_format = 'fallback' }
+                  vim.api.nvim_buf_set_text(bufnr, start_row, start_col, end_row, end_col, replacement)
+
+                  require('conform').format {
+                    bufnr = bufnr,
+                    range = {
+                      ['start'] = { start_row, start_col },
+                      ['end'] = { start_row + #replacement, #replacement[#replacement] },
+                    },
+                    async = false,
+                    lsp_format = 'fallback',
+                  }
 
                   -- tsj:wrap { left = '{', right = '}' }
                   --
