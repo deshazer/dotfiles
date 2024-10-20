@@ -86,3 +86,6 @@ vim.opt.undofile = true
 vim.opt.colorcolumn = '80'
 
 vim.opt.confirm = true -- ask for confirmation instead of erroring
+
+-- session options to make auto-session plugin work the best
+vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
