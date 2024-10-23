@@ -45,6 +45,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
 
     -- [[ Configure Telescope ]]
     -- See `:help telescope` and `:help telescope.setup()`
+    local actions = require 'telescope.actions'
     require('telescope').setup {
       -- You can put your default mappings / updates / etc. in here
       --  All the info you're looking for is in `:help telescope.setup()`
@@ -54,7 +55,13 @@ return { -- Fuzzy Finder (files, lsp, etc)
         selection_caret = ' ',
         path_display = { 'smart' },
         mappings = {
-          i = { ['<c-enter>'] = 'to_fuzzy_refine' },
+          i = {
+            ['<c-enter>'] = 'to_fuzzy_refine',
+            ['<c-b>'] = actions.delete_buffer, -- No buffer! [B]ad buffer!
+          },
+          n = {
+            ['dd'] = actions.delete_buffer,
+          },
         },
       },
       pickers = {
