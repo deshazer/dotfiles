@@ -29,7 +29,9 @@ vim.keymap.set('i', ';;', '<Esc>mzA;<Esc>`za')
 vim.keymap.set('i', ',,', '<Esc>mzA,<Esc>`za')
 
 -- Don't yank the thing you are pasting over the top of (aka Make Pasting Great Again)
+-- Also, paste before the cursor by default in visual mode
 vim.keymap.set('x', 'p', '"_dP', { desc = '[P]ut without yanking' })
+vim.keymap.set('x', 'P', '"_dp', { desc = '[P]ut without yanking' })
 
 -- Moving highlighted lines of text
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move highlighted text line-wise' })
