@@ -78,10 +78,11 @@ return {
         lookahead = true,
         keymaps = {
           -- You can use the capture groups defined in textobjects.scm
-          ['a='] = { query = '@assignment.outer', desc = 'Select outer part of an assignment' },
-          ['i='] = { query = '@assignment.inner', desc = 'Select inner part of an assignment' },
-          ['l='] = { query = '@assignment.lhs', desc = 'Select left hand side of an assignment' },
-          ['r='] = { query = '@assignment.rhs', desc = 'Select right hand side of an assignment' },
+          ['a='] = { query = '@assignment.lhs', desc = 'Select outer part (left side) of an assignment' },
+          ['i='] = { query = '@assignment.rhs', desc = 'Select inner part (right side) of an assignment' },
+          -- Don't make visual mappings with hjkl, as it will map navigating laggy in visual mode
+          -- ['l='] = { query = '@assignment.lhs', desc = 'Select left hand side of an assignment' },
+          -- ['r='] = { query = '@assignment.rhs', desc = 'Select right hand side of an assignment' },
 
           ['aa'] = { query = '@parameter.outer', desc = 'Select outer part of a parameter/argument' },
           ['ia'] = { query = '@parameter.inner', desc = 'Select inner part of a parameter/argument' },
