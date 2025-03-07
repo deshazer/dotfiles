@@ -1,6 +1,6 @@
 return {
   {
-    dir = '/home/steven/code/personal/code-refactor.nvim',
+    'jdrupal-dev/code-refactor.nvim',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     keys = {
       { '<leader>cr', ':CodeActions all<cr>', desc = '[C]ode [R]efactor' },
