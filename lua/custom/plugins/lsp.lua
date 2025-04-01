@@ -267,7 +267,6 @@ return {
             OrganizeImports = {
               organize_imports,
               description = 'Organize imports',
-              keymaps = { '<leader>o' },
             },
           },
           on_attach = function (_, bufnr)
