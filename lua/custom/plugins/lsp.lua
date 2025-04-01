@@ -180,6 +180,15 @@ return {
         end,
       })
 
+      local function organize_imports()
+        local params = {
+          command = '_typescript.organizeImports',
+          arguments = { vim.api.nvim_buf_get_name(0) },
+          title = '',
+        }
+        vim.lsp.buf.execute_command(params)
+      end
+
       -- LSP servers and clients are able to communicate to each other what features they support.
       --  By default, Neovim doesn't support everything that is in the LSP specification.
       --  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
@@ -253,7 +262,18 @@ return {
         },
         -- phpactor = {},
         sqlls = {},
-        ts_ls = {},
+        ts_ls = {
+          commands = {
+            OrganizeImports = {
+              organize_imports,
+              description = 'Organize imports',
+              keymaps = { '<leader>o' },
+            },
+          },
+          on_attach = function (_, bufnr)
+            vim.keymap.set('n', '<leader>o', organize_imports, { buffer = bufnr, desc = '[O]rganize imports' })
+          end
+        },
         vimls = {},
         yamlls = {},
       }
