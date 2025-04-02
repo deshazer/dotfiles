@@ -106,3 +106,6 @@ vim.keymap.set('n', '<leader>eq', '<cmd>EditQuery<cr>', { desc = '[E]dit Treesit
 
 -- Source VIMRC
 vim.keymap.set('n', '<leader>sv', '<cmd>source $MYVIMRC<cr>', { desc = '[S]ource [V]imrc' })
+
+-- Close all buffers except the current one
+vim.keymap.set('n', '<leader>cb', '<cmd>%bd|e#|bd#<cr>', { desc = '[C]lose all [B]uffers (except current)' })
