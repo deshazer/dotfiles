@@ -32,6 +32,7 @@ return {
       }
     end,
     formatters_by_ft = {
+      caddyfile = { "caddyfile" },
       lua = { 'stylua' },
       -- Conform can also run multiple formatters sequentially
       python = { 'isort', 'black' },
@@ -55,6 +56,11 @@ return {
       yaml = { 'prettierd', 'prettier', stop_after_first = true },
     },
     formatters = {
+      caddyfile = {
+        command = 'caddy',
+        args = { 'fmt', '-' },
+        stdin = true,
+      },
       stylua = {
         command = 'stylua',
         -- args = {
