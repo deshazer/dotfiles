@@ -205,6 +205,7 @@ return {
       --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
+
       local servers = {
         -- clangd = {},
         -- gopls = {},
@@ -263,13 +264,76 @@ return {
         -- phpactor = {},
         sqlls = {},
         ts_ls = {
+          settings = {
+            diagnostics = {
+              ignoredCodes = {
+                2324,
+                2739,
+                2740,
+                2741,
+                7005,
+                7006,
+                7007,
+                7008,
+                7009,
+                7010,
+                7011,
+                7012,
+                7013,
+                7014,
+                7015,
+                7016,
+                7017,
+                7018,
+                7019,
+                7020,
+                7021,
+                7022,
+                7023,
+                7024,
+                7025,
+                7026,
+                7027,
+                7028,
+                7029,
+                7030,
+                7031,
+                7032,
+                7033,
+                7034,
+                7035,
+                7036,
+                7037,
+                7038,
+                7039,
+                7040,
+                7041,
+                7042,
+                7043,
+                7044,
+                7045,
+                7046,
+                7047,
+                7048,
+                7049,
+                7050,
+                7051,
+                7052,
+                7053,
+                7054,
+                7055,
+                7056,
+                7057,
+              }
+            }
+          },
           commands = {
             OrganizeImports = {
               organize_imports,
               description = 'Organize imports',
             },
           },
-          on_attach = function (_, bufnr)
+          on_attach = function(_, bufnr)
             vim.keymap.set('n', '<leader>o', organize_imports, { buffer = bufnr, desc = '[O]rganize imports' })
           end
         },
