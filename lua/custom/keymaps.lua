@@ -101,11 +101,14 @@ vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv')
 
 -- Neovim built-in treesitter support!
-vim.keymap.set('n', '<leader>it', '<cmd>InspectTree<cr>', { desc = '[I]nspect Treesitter [T]ree' })
-vim.keymap.set('n', '<leader>eq', '<cmd>EditQuery<cr>', { desc = '[E]dit Treesitter [Q]uery' })
+-- vim.keymap.set('n', '<leader>it', '<cmd>InspectTree<cr>', { desc = '[I]nspect Treesitter [T]ree' })
+-- vim.keymap.set('n', '<leader>eq', '<cmd>EditQuery<cr>', { desc = '[E]dit Treesitter [Q]uery' })
 
 -- Source VIMRC
 vim.keymap.set('n', '<leader>sv', '<cmd>source $MYVIMRC<cr>', { desc = '[S]ource [V]imrc' })
 
 -- Close all buffers except the current one
 vim.keymap.set('n', '<leader>cb', '<cmd>%bd|e#|bd#<cr>', { desc = '[C]lose all [B]uffers (except current)' })
+
+vim.keymap.set('n', '<leader>qq', '<cmd>qa<cr>', { desc = '[Q]uit all' })
+vim.keymap.set('n', '<leader>wq', '<cmd>wqa<cr>', { desc = '[W]rite and [Q]uit all' })

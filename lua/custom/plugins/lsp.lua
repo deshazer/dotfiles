@@ -268,6 +268,7 @@ return {
             diagnostics = {
               ignoredCodes = {
                 2324,
+                2327,
                 2739,
                 2740,
                 2741,
