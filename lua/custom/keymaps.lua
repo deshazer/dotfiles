@@ -112,3 +112,5 @@ vim.keymap.set('n', '<leader>cb', '<cmd>%bd|e#|bd#<cr>', { desc = '[C]lose all [
 
 vim.keymap.set('n', '<leader>qq', '<cmd>qa<cr>', { desc = '[Q]uit all' })
 vim.keymap.set('n', '<leader>wq', '<cmd>wqa<cr>', { desc = '[W]rite and [Q]uit all' })
+vim.keymap.set('n', '<leader>wa', '<cmd>wa<cr>', { desc = '[W]rite [A]ll' })
+vim.keymap.set('n', '<leader>ww', '<cmd>w<cr>', { desc = '[W]rite file' })

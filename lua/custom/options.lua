@@ -88,4 +88,12 @@ vim.opt.colorcolumn = '110'
 vim.opt.confirm = true -- ask for confirmation instead of erroring
 
 -- session options to make auto-session plugin work the best
-vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
+vim.opt.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
+
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.softtabstop = 2
+vim.opt.expandtab = true
+vim.opt.smartindent = false
+vim.opt.autoindent = false
+vim.api.nvim_command('filetype indent off')
