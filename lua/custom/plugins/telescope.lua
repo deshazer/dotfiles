@@ -51,6 +51,11 @@ return { -- Fuzzy Finder (files, lsp, etc)
       --  All the info you're looking for is in `:help telescope.setup()`
       --
       defaults = {
+        file_ignore_patterns = {
+          'node_modules/**',
+          '^vendor/',
+          '^.git/',
+        },
         prompt_prefix = '🔍 ',
         selection_caret = ' ',
         path_display = { 'smart' },
@@ -89,7 +94,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
     vim.keymap.set('n', '<leader>sf', function()
       -- Make sure every single type of file is searched (including .env files)
-      builtin.find_files { find_command = { 'rg', '--files', '--hidden', '--no-ignore', '-u' } }
+      builtin.find_files { find_command = { 'rg', '--files', '--hidden', '-u' } }
     end, { desc = '[S]earch [F]iles' })
     vim.keymap.set('n', '<C-p>', function()
       builtin.git_files { show_untracked = true, use_git_root = true }
