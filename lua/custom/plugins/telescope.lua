@@ -52,7 +52,9 @@ return { -- Fuzzy Finder (files, lsp, etc)
       --
       defaults = {
         file_ignore_patterns = {
-          'node_modules/**',
+          'node_modules/',
+          'venv/',
+          '__pycache__/',
           '^vendor/',
           '^.git/',
         },
